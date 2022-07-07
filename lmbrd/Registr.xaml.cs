@@ -28,50 +28,50 @@ namespace lmbrd
 
 
             //Ввод логи на и пароля для нового пользователя 
-            string loginReg = logi.Text.Trim();
-            string passReg = pswrd.Password;
+            //string loginReg = logi.Text.Trim();
+            //string passReg = pswrd.Password;
           
-            string fam = Surnamee.Text;
-            string  = email.Text;
-            string telph = phonee.Text;
+            //string fam = Surnamee.Text;
+            //string  = email.Text;
+            //string telph = phonee.Text;
 
 
-            //условие,если пароль и подтв пароля совпадают
-            if (passReg == passReg2)
-            //Используем базу данных для занесения пользователя в базу
-            {
-                using (egregr_SampleDBEntities1 hachi = new egregr_SampleDBEntities1())
-                {
-                    //запрос к базе
-                    var query = hachi.Klienti.Where(x => x.log.Equals(loginReg)).FirstOrDefault();
-                    // если такого лоигна нет,то он вносится в базу
-                    if (query == null)
-                    //Добавление нового пользователя 
-                    {
-                        hachi.Klienti.Add(new Klienti()
-                        {
-                            Login = loginReg,
-                            Password = passReg,
-                            FIO = fio,
-                            email = emaill,
-                            Phone = telph,
-                        }
-                        );
+            ////условие,если пароль и подтв пароля совпадают
+            //if (passReg == passReg2)
+            ////Используем базу данных для занесения пользователя в базу
+            //{
+            //    using (egregr_SampleDBEntities1 hachi = new egregr_SampleDBEntities1())
+            //    {
+            //        //запрос к базе
+            //        var query = hachi.Klienti.Where(x => x.log.Equals(loginReg)).FirstOrDefault();
+            //        // если такого лоигна нет,то он вносится в базу
+            //        if (query == null)
+            //        //Добавление нового пользователя 
+            //        {
+            //            hachi.Klienti.Add(new Klienti()
+            //            {
+            //                Login = loginReg,
+            //                Password = passReg,
+            //                FIO = fio,
+            //                email = emaill,
+            //                Phone = telph,
+            //            }
+            //            );
                         //сохранение изменений
-                        hachi.SaveChanges();
-                        MessageBox.Show("Поздравляем!Вы успешно зарегестрировались!");
+            //            hachi.SaveChanges();
+            //            MessageBox.Show("Поздравляем!Вы успешно зарегестрировались!");
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Такой логин уже существует");
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Пароли не совпадают");
-            }
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("Такой логин уже существует");
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Пароли не совпадают");
+            //}
         }
     }
 }
