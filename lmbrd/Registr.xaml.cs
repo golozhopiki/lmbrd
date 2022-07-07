@@ -28,11 +28,11 @@ namespace lmbrd
 
 
             //Ввод логи на и пароля для нового пользователя 
-            string loginReg = lgn.Text.Trim();
+            string loginReg = logi.Text.Trim();
             string passReg = pswrd.Password;
-            string passReg2 = pswrdd.Password;
-            string fio = FIO.Text;
-            string emaill = email.Text;
+          
+            string fam = Surnamee.Text;
+            string  = email.Text;
             string telph = phonee.Text;
 
 
@@ -40,7 +40,7 @@ namespace lmbrd
             if (passReg == passReg2)
             //Используем базу данных для занесения пользователя в базу
             {
-                using (egregr_SampleDBEntities hachi = new egregr_SampleDBEntities())
+                using (egregr_SampleDBEntities1 hachi = new egregr_SampleDBEntities1())
                 {
                     //запрос к базе
                     var query = hachi.Klienti.Where(x => x.log.Equals(loginReg)).FirstOrDefault();
