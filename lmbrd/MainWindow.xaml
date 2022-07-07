@@ -5,10 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lmbrd"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="450"
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel>
-            
+    <!--Сетка-->
+    <Grid.RowDefinitions>
+        <RowDefinition/>
+        <RowDefinition/>
+    </Grid.RowDefinitions>
+
+    <!--Background-->
+    <Border CornerRadius="10" Grid.RowSpan="2">
+        <Border.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#006400" Offset="0.0"/>
+                <GradientStop Color="#808080" Offset="0.8"/>
+            </LinearGradientBrush>
+        </Border.Background>
+    </Border>
+
+    <!--Img and name compani-->
+    <Grid Grid.Row="0">
+        <StackPanel VerticalAlignment="Center">
+            <!--<Image Source="/Img/Lombard.png" Width="70"/>-->
         </StackPanel>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center"  
+                        Width="200" Height="50" Margin="0 150 0 0">
+            <TextBlock Text="Аверс-Ломбард" VerticalAlignment="Center" HorizontalAlignment="Center"
+                           FontFamily="KTF Jermilov" FontWeight="Medium" FontSize="25" Foreground="#FFD700"
+                           />
+        </StackPanel>
+    </Grid>
+    <!--Login and password and Buttons-->
+    <Grid Grid.Row="1">
+        <StackPanel Orientation="Vertical"
+                >
+            <!--LOgin-->
+            <TextBlock HorizontalAlignment="Center" Width="200" TextAlignment="Left"
+                           Text="Enter your login:" FontFamily="KTF Jermilov" Foreground="White" FontWeight="Medium"
+                           FontSize="18"/>
+            <TextBox Name="Txblogin" Background="Transparent" HorizontalAlignment="Center" Width="200" 
+                         BorderBrush="Black" BorderThickness="2"/>
+            <!--Password-->
+            <TextBlock HorizontalAlignment="Center" Width="200" TextAlignment="Left" Margin="0 20 0 0"
+                           Text="Enter password:" FontFamily="KTF Jermilov" Foreground="White" FontWeight="Medium"
+                           FontSize="18"/>
+            <TextBox Name="TxbPassword" Background="Transparent" HorizontalAlignment="Center" Width="200" 
+                         BorderBrush="Black" BorderThickness="2"/>
+        </StackPanel>
+
+        <!--reg and Login-->
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Margin="0 60 0 0">
+            <Button Content="Login" Background="Transparent" BorderThickness="0" Margin="0 0 40 0"
+                        FontFamily="KTF Jermilov" Foreground="White" FontWeight="Normal"
+                        FontSize="20"/>
+            <Button Content="Register" Background="Transparent"  BorderThickness="0"
+                        FontFamily="KTF Jermilov" Foreground="White" FontWeight="Normal"
+                        FontSize="20"/>
+        </StackPanel>
+    </Grid>
     </Grid>
 </Window>
