@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище egregr_SampleDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище egregr_SampleDBModel1" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -17,23 +17,23 @@
           <Key>
             <PropertyRef Name="KlientID" />
           </Key>
-          <Property Name="KlientID" Type="int" Nullable="false" />
+          <Property Name="KlientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Surname" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Lastname" Type="nvarchar" MaxLength="50" />
           <Property Name="Passport" Type="bigint" Nullable="false" />
           <Property Name="Date passport" Type="date" Nullable="false" />
           <Property Name="RoleID" Type="bit" Nullable="false" />
-          <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pass" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="log">
           <Key>
-            <PropertyRef Name="LogID" />
+            <PropertyRef Name="RoleID" />
           </Key>
           <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="pass" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="RoleID" Type="bit" Nullable="false" />
-          <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Sdacha">
           <Key>
@@ -59,15 +59,15 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK_Klienti_log1">
+        <Association Name="FK_Klienti_log">
           <End Role="log" Type="Self.log" Multiplicity="1" />
           <End Role="Klienti" Type="Self.Klienti" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="log">
-              <PropertyRef Name="LogID" />
+              <PropertyRef Name="RoleID" />
             </Principal>
             <Dependent Role="Klienti">
-              <PropertyRef Name="LogID" />
+              <PropertyRef Name="RoleID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -126,13 +126,13 @@
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="Хранилище egregr_SampleDBModelContainer">
+        <EntityContainer Name="Хранилище egregr_SampleDBModel1Container">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Klienti" EntityType="Self.Klienti" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="log" EntityType="Self.log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sdacha" EntityType="Self.Sdacha" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Klienti_log1" Association="Self.FK_Klienti_log1">
+          <AssociationSet Name="FK_Klienti_log" Association="Self.FK_Klienti_log">
             <End Role="log" EntitySet="log" />
             <End Role="Klienti" EntitySet="Klienti" />
           </AssociationSet>
@@ -149,7 +149,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="egregr_SampleDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="egregr_SampleDBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -163,26 +163,26 @@
           <Key>
             <PropertyRef Name="KlientID" />
           </Key>
-          <Property Name="KlientID" Type="Int32" Nullable="false" />
+          <Property Name="KlientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Surname" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Passport" Type="Int64" Nullable="false" />
           <Property Name="Date_passport" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="RoleID" Type="Boolean" Nullable="false" />
-          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="log" Relationship="Self.FK_Klienti_log1" FromRole="Klienti" ToRole="log" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="log" Relationship="Self.FK_Klienti_log" FromRole="Klienti" ToRole="log" />
           <NavigationProperty Name="Sdacha" Relationship="Self.FK_Sdacha_Klienti" FromRole="Klienti" ToRole="Sdacha" />
         </EntityType>
         <EntityType Name="log">
           <Key>
-            <PropertyRef Name="LogID" />
+            <PropertyRef Name="RoleID" />
           </Key>
           <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="RoleID" Type="Boolean" Nullable="false" />
-          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Klienti" Relationship="Self.FK_Klienti_log1" FromRole="log" ToRole="Klienti" />
+          <NavigationProperty Name="Klienti" Relationship="Self.FK_Klienti_log" FromRole="log" ToRole="Klienti" />
         </EntityType>
         <EntityType Name="Sdacha">
           <Key>
@@ -222,15 +222,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Klienti_log1">
+        <Association Name="FK_Klienti_log">
           <End Role="log" Type="Self.log" Multiplicity="1" />
           <End Role="Klienti" Type="Self.Klienti" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="log">
-              <PropertyRef Name="LogID" />
+              <PropertyRef Name="RoleID" />
             </Principal>
             <Dependent Role="Klienti">
-              <PropertyRef Name="LogID" />
+              <PropertyRef Name="RoleID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -246,7 +246,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="egregr_SampleDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="egregr_SampleDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Category" EntityType="Self.Category" />
           <EntitySet Name="Klienti" EntityType="Self.Klienti" />
           <EntitySet Name="log" EntityType="Self.log" />
@@ -256,7 +256,7 @@
             <End Role="Category" EntitySet="Category" />
             <End Role="Sdacha" EntitySet="Sdacha" />
           </AssociationSet>
-          <AssociationSet Name="FK_Klienti_log1" Association="Self.FK_Klienti_log1">
+          <AssociationSet Name="FK_Klienti_log" Association="Self.FK_Klienti_log">
             <End Role="log" EntitySet="log" />
             <End Role="Klienti" EntitySet="Klienti" />
           </AssociationSet>
@@ -280,11 +280,11 @@
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(egregr_SampleDBModel.sp_helpdiagramdefinition_Result)">
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(egregr_SampleDBModel1.sp_helpdiagramdefinition_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(egregr_SampleDBModel.sp_helpdiagrams_Result)">
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(egregr_SampleDBModel1.sp_helpdiagrams_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -311,9 +311,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище egregr_SampleDBModelContainer" CdmEntityContainer="egregr_SampleDBEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище egregr_SampleDBModel1Container" CdmEntityContainer="egregr_SampleDBEntities1">
           <EntitySetMapping Name="Category">
-            <EntityTypeMapping TypeName="egregr_SampleDBModel.Category">
+            <EntityTypeMapping TypeName="egregr_SampleDBModel1.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="NameC" ColumnName="NameC" />
@@ -322,7 +322,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Klienti">
-            <EntityTypeMapping TypeName="egregr_SampleDBModel.Klienti">
+            <EntityTypeMapping TypeName="egregr_SampleDBModel1.Klienti">
               <MappingFragment StoreEntitySet="Klienti">
                 <ScalarProperty Name="KlientID" ColumnName="KlientID" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -331,22 +331,22 @@
                 <ScalarProperty Name="Passport" ColumnName="Passport" />
                 <ScalarProperty Name="Date_passport" ColumnName="Date passport" />
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
-                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="log">
-            <EntityTypeMapping TypeName="egregr_SampleDBModel.log">
+            <EntityTypeMapping TypeName="egregr_SampleDBModel1.log">
               <MappingFragment StoreEntitySet="log">
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="pass" ColumnName="pass" />
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
-                <ScalarProperty Name="LogID" ColumnName="LogID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sdacha">
-            <EntityTypeMapping TypeName="egregr_SampleDBModel.Sdacha">
+            <EntityTypeMapping TypeName="egregr_SampleDBModel1.Sdacha">
               <MappingFragment StoreEntitySet="Sdacha">
                 <ScalarProperty Name="SdachaID" ColumnName="SdachaID" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
@@ -361,7 +361,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="egregr_SampleDBModel.sysdiagrams">
+            <EntityTypeMapping TypeName="egregr_SampleDBModel1.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -371,20 +371,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище egregr_SampleDBModel.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище egregr_SampleDBModel.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище egregr_SampleDBModel.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище egregr_SampleDBModel.sp_helpdiagramdefinition">
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище egregr_SampleDBModel1.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище egregr_SampleDBModel1.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище egregr_SampleDBModel1.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище egregr_SampleDBModel1.sp_helpdiagramdefinition">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="egregr_SampleDBModel.sp_helpdiagramdefinition_Result">
+              <ComplexTypeMapping TypeName="egregr_SampleDBModel1.sp_helpdiagramdefinition_Result">
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище egregr_SampleDBModel.sp_helpdiagrams">
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище egregr_SampleDBModel1.sp_helpdiagrams">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="egregr_SampleDBModel.sp_helpdiagrams_Result">
+              <ComplexTypeMapping TypeName="egregr_SampleDBModel1.sp_helpdiagrams_Result">
                 <ScalarProperty Name="Database" ColumnName="Database" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -393,8 +393,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище egregr_SampleDBModel.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище egregr_SampleDBModel.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище egregr_SampleDBModel1.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище egregr_SampleDBModel1.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

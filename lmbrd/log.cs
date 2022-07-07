@@ -23,7 +23,6 @@ namespace lmbrd
         public string login { get; set; }
         public string pass { get; set; }
         public bool RoleID { get; set; }
-        public int LogID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Klienti> Klienti { get; set; }

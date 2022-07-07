@@ -15,10 +15,10 @@ namespace lmbrd
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class egregr_SampleDBEntities : DbContext
+    public partial class egregr_SampleDBEntities1 : DbContext
     {
-        public egregr_SampleDBEntities()
-            : base("name=egregr_SampleDBEntities")
+        public egregr_SampleDBEntities1()
+            : base("name=egregr_SampleDBEntities1")
         {
         }
     
