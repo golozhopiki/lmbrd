@@ -15,13 +15,13 @@ namespace lmbrd
     public partial class Sdacha
     {
         public int SdachaID { get; set; }
-        public int Category { get; set; }
+        public string Category { get; set; }
         public int IDClienta { get; set; }
         public string Opisanie { get; set; }
         public System.DateTime Date_sdachi { get; set; }
-        public decimal Price { get; set; }
-        public decimal Komissia { get; set; }
-        public System.DateTime Date_vozvrata_p { get; set; }
+        public Nullable<decimal> Price { get; set; }
+        public Nullable<decimal> Komissia { get; set; }
+        public Nullable<System.DateTime> Date_vozvrata_p { get; set; }
         public Nullable<System.DateTime> Date_vozvrata_f { get; set; }
     
         public virtual Category Category1 { get; set; }

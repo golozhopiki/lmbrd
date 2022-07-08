@@ -20,7 +20,7 @@ namespace lmbrd
             this.Sdacha = new HashSet<Sdacha>();
         }
     
-        public int CategoryID { get; set; }
+        public string CategoryID { get; set; }
         public string NameC { get; set; }
         public string description { get; set; }
     

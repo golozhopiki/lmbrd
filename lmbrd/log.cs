@@ -19,10 +19,10 @@ namespace lmbrd
         {
             this.Klienti = new HashSet<Klienti>();
         }
-    
+        
         public string login { get; set; }
         public string pass { get; set; }
-        public bool RoleID { get; set; }
+        public int RoleID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Klienti> Klienti { get; set; }

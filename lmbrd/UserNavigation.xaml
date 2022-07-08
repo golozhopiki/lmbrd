@@ -1,0 +1,70 @@
+﻿<Window x:Class="lmbrd.UserNavigation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lmbrd"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="450"
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <!--Background-->
+        <Border CornerRadius="10" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#006400" Offset="0.0"/>
+                    <GradientStop Color="#808080" Offset="0.8"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <!--Верхняя панель-->
+        <Border Grid.ColumnSpan="2"
+                
+               
+            >
+            <!--Названиен чата-->
+            <Grid HorizontalAlignment="Stretch">
+
+                <!--Кнопки Выхода, Расширения, Сворачивания-->
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal"
+                            
+                    >
+                    <!--Свернуть-->
+                    <Button Width="25px" Height="20px" 
+                            Content="___" Background="Transparent"
+                            BorderThickness="0" FontWeight="Black"
+                            Foreground="#F5F5F5"
+                            Margin="0 0 0 5"
+                            Click="Button_Click_Minimize" VerticalAlignment="Top"
+                        />
+
+                    <!--Развернуть-->
+                    <Button Width="25px" Height="25px" 
+                            Content="☐" Background="Transparent"
+                            BorderThickness="0" FontWeight="Black"
+                            Foreground="#F5F5F5"
+                            Click="Button_Click_Maximazed" VerticalAlignment="Top"
+                        />
+                    <!--Выход-->
+                    <Button Width="25px" Height="25px" 
+                            Content="✕" Background="Transparent"
+                            BorderThickness="0" FontWeight="Black"
+                            Foreground="#F5F5F5"
+                            Click="Button_Click_Close" VerticalAlignment="Top"
+                        />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+            <Button Content="Заложить вещь" Background="Transparent" 
+                    Foreground="White" FontSize="25" BorderThickness="0"
+                    Margin="0 0 40 0" Click="Button_Click"/>
+            <Button Content="Выкупить" Background="Transparent" 
+                    Foreground="White" FontSize="25" BorderThickness="0"/>
+        </StackPanel>
+    </Grid>
+</Window>

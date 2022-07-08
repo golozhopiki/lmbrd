@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3728fad6b0034c61bee48cf5e51864ed" Name="Diagram1">
-        <EntityTypeShape EntityType="egregr_SampleDBModel1.Category" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="egregr_SampleDBModel1.Klienti" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="egregr_SampleDBModel1.log" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="egregr_SampleDBModel1.Sdacha" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="egregr_SampleDBModel1.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
-        <AssociationConnector Association="egregr_SampleDBModel1.FK_Sdacha_Category" ManuallyRouted="false" />
-        <AssociationConnector Association="egregr_SampleDBModel1.FK_Klienti_log" ManuallyRouted="false" />
-        <AssociationConnector Association="egregr_SampleDBModel1.FK_Sdacha_Klienti" ManuallyRouted="false" />
+      <Diagram DiagramId="e5a39f5229be4416be7c48e85490516e" Name="Diagram1">
+        <EntityTypeShape EntityType="egregr_SampleDBModel3.Category" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="egregr_SampleDBModel3.Klienti" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="egregr_SampleDBModel3.log" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="egregr_SampleDBModel3.Sdacha" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="egregr_SampleDBModel3.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="egregr_SampleDBModel3.FK_Sdacha_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="egregr_SampleDBModel3.FK_Klienti_log" ManuallyRouted="false" />
+        <AssociationConnector Association="egregr_SampleDBModel3.FK_Sdacha_Klienti" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

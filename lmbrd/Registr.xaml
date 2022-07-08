@@ -5,190 +5,208 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lmbrd"
         mc:Ignorable="d"
-        Title="Registr" MinHeight="200" MinWidth="400"
-        Height="200" Width="400">
+        Title="Registr" Height="600" Width="550"
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None"  WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition>
-
-            </ColumnDefinition>
-            <ColumnDefinition>
-
-            </ColumnDefinition>
-            <ColumnDefinition>
-
-            </ColumnDefinition>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
-            <RowDefinition>
-
-            </RowDefinition>
-            <RowDefinition>
-
-            </RowDefinition>
-            <RowDefinition>
-
-            </RowDefinition>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.ColumnSpan="2"
-            Orientation="Horizontal"
-                    Height="20"
-                    VerticalAlignment="Top" >
-            <TextBlock Width="52" 
-                       HorizontalAlignment="Left">
-            Фамилия:
-            </TextBlock>
-            <TextBox Margin="10 0 0 0"
-                 Width="110" 
-                 Height="20" 
-                 Name="Surnamee"
-                 HorizontalAlignment="Right" 
-                 VerticalAlignment="Top"></TextBox>
+
+        <!--Background-->
+        <Border CornerRadius="10" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#006400" Offset="0.0"/>
+                    <GradientStop Color="#808080" Offset="0.8"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <!--Верхняя панель-->
+        <Border Grid.ColumnSpan="2"
+                
+               
+            >
+       
+            <Grid HorizontalAlignment="Stretch">
+
+                <!--Кнопки Выхода, Расширения, Сворачивания-->
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal"
+                            
+                    >
+                    <!--Свернуть-->
+                    <Button Width="25px" Height="20px" 
+                            Content="___" Background="Transparent"
+                            BorderThickness="0" FontWeight="Black"
+                            Foreground="#F5F5F5"
+                            Margin="0 0 0 5"
+                            Click="Button_Click_Minimize" VerticalAlignment="Top"
+                        />
+
+                    <!--Развернуть-->
+                    <Button Width="25px" Height="25px" 
+                            Content="☐" Background="Transparent"
+                            BorderThickness="0" FontWeight="Black"
+                            Foreground="#F5F5F5"
+                            Click="Button_Click_Maximazed" VerticalAlignment="Top"
+                        />
+                    <!--Выход-->
+                    <Button Width="25px" Height="25px" 
+                            Content="✕" Background="Transparent"
+                            BorderThickness="0" FontWeight="Black"
+                            Foreground="#F5F5F5"
+                            Click="Button_Click_Close" VerticalAlignment="Top"
+                        />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!--Txb Регстраиця-->
+        <StackPanel Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 20 0 0">
+            <TextBlock Text="Регистрация" Foreground="#FFD700" 
+                       FontFamily="KTF Jermilov" FontWeight="Medium" FontSize="25"/>
 
         </StackPanel>
 
-        <StackPanel Grid.ColumnSpan="2"
-            Orientation="Horizontal"
-                    Height="20"
-                    VerticalAlignment="Center"
-                    >
-            <TextBlock Width="52" 
-                       HorizontalAlignment="Left">
-           Имя:
-            </TextBlock>
-            <TextBox Margin="10 0 0 0"
-                 Width="110" 
-                 Height="20" 
-                 Name ="Namee"
-                 HorizontalAlignment="Right" 
-                 VerticalAlignment="Top"></TextBox>
+        <Grid Grid.ColumnSpan="2" HorizontalAlignment="Center" >
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
 
-        </StackPanel>
+                <!--Login-->
+                <StackPanel Orientation="Horizontal" Height="20" Margin="0 0 0 10">
+                    <TextBlock Width="55" Text="Логин:" Foreground="White" FontWeight="Medium" 
+                       HorizontalAlignment="Left"/>
 
-        <StackPanel Grid.ColumnSpan="2"
-            Orientation="Horizontal"
-                    Height="20"
-                    VerticalAlignment="Bottom"
+                    <TextBox Margin="10 0 0 0"
+                    Width="130" 
+                    Height="20" 
+                    Name="logi"
+                    MaxLength="12"
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Top"/>
+                </StackPanel>
+
+                <!--Password-->
+                <StackPanel Height="20" Orientation="Horizontal" Margin="0 0 0 10">
+                    <TextBlock Width="55" Text="Пароль:" Foreground="White" FontWeight="Medium"
+                       HorizontalAlignment="Left"/>
+
+                    <TextBox Margin="10 0 0 0"
+                    Width="130" 
+                    Height="20" 
+                    Name="pswrd"
+                    MaxLength="12" 
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Top"/>
+                </StackPanel>
+
+              
+                <StackPanel Orientation="Horizontal" Height="1"
                     >
-            <TextBlock Width="52" 
+                    <TextBlock Width="52" 
                        HorizontalAlignment="Left">
-           Отчество:
-            </TextBlock>
-            <TextBox Margin="10 0 0 0"
-                 Width="110" 
+
+                    </TextBlock>
+                    <TextBox Margin="10 0 0 0"
+                    Width="1" 
+                    Height="1"
+                    MaxLength="1"
+                    Name="RolId"
+                    IsReadOnly="True"
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Top">2</TextBox>
+                </StackPanel>
+
+                <!--Фамиллии-->
+                <StackPanel Orientation="Horizontal" Height="20"
+                        >
+                    <TextBlock Text="Фамилия:" Foreground="White" 
+                        HorizontalAlignment="Left" FontWeight="Medium" Width="55" />
+
+                    <TextBox Margin="10 0 0 0"
+                    Width="130" 
+                    Height="20" 
+                    Name="Surnamee"
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Top"/>
+                </StackPanel>
+                <!--Имя-->
+                <StackPanel Orientation="Horizontal" Height="20" Margin="0 10 0 0">
+                    <TextBlock Width="55" Text="Имя:" Foreground="White" FontWeight="Medium"
+                           HorizontalAlignment="Left"/>
+
+                    <TextBox Margin="10 0 0 0"
+                    Width="130" 
+                    Height="20" 
+                    Name ="Namee"
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Top"></TextBox>
+                </StackPanel>
+
+                <!--Отчество-->
+                <StackPanel Orientation="Horizontal" Height="20"  Margin="0 10 0 0">
+                    <TextBlock Width="55" Text="Отчество:" 
+                       Foreground="White" FontWeight="Medium"
+                       HorizontalAlignment="Left"/>
+
+                    <TextBox Margin="10 0 0 0"
+                 Width="130" 
                  Height="20" 
                  Name="Lastnamee"
                  HorizontalAlignment="Right" 
-                 VerticalAlignment="Top"></TextBox>
+                 VerticalAlignment="Top"/>
+                </StackPanel>
+            </StackPanel>
 
-        </StackPanel>
-        <StackPanel Grid.ColumnSpan="2"
-                    Grid.Row="1"
-            Orientation="Horizontal"
-                    Height="20"
-                    VerticalAlignment="Top" HorizontalAlignment="Left"
-                    >
-            <TextBlock Width="141" 
-                       HorizontalAlignment="Left">
-           Номер и серия паспорта:
-            </TextBlock>
-            <TextBox Margin="10 0 0 0"
+            <!--Паспорт-->
+            <StackPanel  VerticalAlignment="Bottom">
+
+                <StackPanel Orientation="Horizontal"  Height="20" >
+                    <TextBlock Width="145" Text="Номер и серия паспорта:"
+                       Foreground="White" FontWeight="Medium"
+                       HorizontalAlignment="Left"/>
+
+                    <TextBox Margin="10 0 0 0"
                  Width="110" 
                  Height="20" 
                  Name="passn"
                  HorizontalAlignment="Right" 
-                 VerticalAlignment="Top"></TextBox>
+                 VerticalAlignment="Top"/>
+                </StackPanel>
 
-        </StackPanel>
-        <StackPanel Grid.ColumnSpan="2"
-                    Grid.Row="1"
-            Orientation="Horizontal"
-                    Height="20"
-                    VerticalAlignment="Center"
-                    >
-            <TextBlock Width="141" 
-                       HorizontalAlignment="Left">
-           Дата выдачи паспорта:
-            </TextBlock>
-            <TextBox Margin="10 0 0 0"
-                 Width="110" 
-                 Height="20" 
-                 Name="dateps"
-                 HorizontalAlignment="Right" 
-                 VerticalAlignment="Top"></TextBox>
+            </StackPanel>
+        </Grid>
 
-        </StackPanel>
-        <StackPanel Grid.ColumnSpan="2"
-                    Grid.Row="1"
-            Orientation="Horizontal"
-                    Height="20"
-                    VerticalAlignment="Bottom"
-                    >
-            <TextBlock Width="52" 
-                       HorizontalAlignment="Left">
-           Логин:
-            </TextBlock>
-            <TextBox Margin="10 0 0 0"
-                 Width="110" 
-                 Height="20" 
-                 Name="logi"
-                     MaxLength="12"
-                     TextChanged="Gruppa_TextChanged"
-                 HorizontalAlignment="Right" 
-                 VerticalAlignment="Top"></TextBox>
-
-        </StackPanel>
-        <StackPanel Grid.ColumnSpan="2"
-                    Grid.Row="1"
-            Orientation="Horizontal"
-                    Height="20"
-                    VerticalAlignment="Bottom"
-                    >
-            <TextBlock Width="52" 
-                       HorizontalAlignment="Left">
-           Пароль:
-            </TextBlock>
-            <TextBox Margin="10 0 0 0"
-                 Width="110" 
-                 Height="20" 
-                 Name="pswrd"
-                     MaxLength="12"
-                     TextChanged="Gruppa_TextChanged"
-                 HorizontalAlignment="Right" 
-                 VerticalAlignment="Top"></TextBox>
-
-        </StackPanel>
-        <StackPanel 
-                    Grid.Row="2"
-            Orientation="Horizontal"
-                    Height="1"
-                    VerticalAlignment="Top"
-                    >
-            <TextBlock Width="52" 
-                       HorizontalAlignment="Left">
-
-            </TextBlock>
-            <TextBox Margin="10 0 0 0"
-                 Width="1" 
-                 Height="1"
-                 MaxLength="1"
-                    
-                 Name="RoleId"
-                     IsReadOnly="True"
-                 HorizontalAlignment="Right" 
-                 VerticalAlignment="Top">2</TextBox>
-
+        <!--Дата выдачи паспорта-->
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2"  VerticalAlignment="Top" HorizontalAlignment="Center"
+                    Margin="0 10 0 0">
+            <StackPanel Orientation="Horizontal" Height="20">
+                <TextBlock Width="145" Text="Дата выдачи паспорта:" 
+                       HorizontalAlignment="Left" Foreground="White" FontWeight="Medium"/>
+                <DatePicker BorderBrush="Transparent"
+                    Name="dateps"
+                    Height="22"
+                    Width="120"
+                    FontSize="9"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"/>
+            </StackPanel>
         </StackPanel>
 
-        <Button Grid.Column="2"
-                Grid.Row="2" 
-                Click="Button_Click_save"
-                Height="50"
-                Width="70"
-                VerticalAlignment="Bottom" 
-                HorizontalAlignment="Right">
-            Применить
-        </Button>
+        <!--Кнопки входа и назад-->
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Click="Button_Click_Back" Content="Back" Background="Transparent" BorderThickness="0" Margin="0 0 40 0"
+                        FontFamily="KTF Jermilov" Foreground="White" FontWeight="Normal"
+                        FontSize="20"/>
+            <Button Click="Button_Click_save" Content="Login" Background="Transparent"  BorderThickness="0"
+                        FontFamily="KTF Jermilov" Foreground="White" FontWeight="Normal"
+                        FontSize="20"/>
+        </StackPanel>
     </Grid>
 
 </Window>

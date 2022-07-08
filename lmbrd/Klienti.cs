@@ -26,7 +26,7 @@ namespace lmbrd
         public string Lastname { get; set; }
         public long Passport { get; set; }
         public System.DateTime Date_passport { get; set; }
-        public bool RoleID { get; set; }
+        public int RoleID { get; set; }
         public string login { get; set; }
         public string pass { get; set; }
     

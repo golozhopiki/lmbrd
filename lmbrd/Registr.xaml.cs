@@ -23,55 +23,93 @@ namespace lmbrd
         {
             InitializeComponent();
         }
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_save(object sender, RoutedEventArgs e)
         {
 
 
-            //Ввод логи на и пароля для нового пользователя 
-            //string loginReg = logi.Text.Trim();
-            //string passReg = pswrd.Password;
+            //Ввод логи на и пароля для нового пользователя
+            string loginReg = logi.Text.Trim();
+            string passReg = pswrd.Text;
+
+            string fam = Surnamee.Text;
+            string nam = Namee.Text;
+            string last = Lastnamee.Text;
+            string pasn = passn.Text;
+            string date = dateps.Text;
           
-            //string fam = Surnamee.Text;
-            //string  = email.Text;
-            //string telph = phonee.Text;
+            
 
 
-            ////условие,если пароль и подтв пароля совпадают
-            //if (passReg == passReg2)
-            ////Используем базу данных для занесения пользователя в базу
-            //{
-            //    using (egregr_SampleDBEntities1 hachi = new egregr_SampleDBEntities1())
-            //    {
-            //        //запрос к базе
-            //        var query = hachi.Klienti.Where(x => x.log.Equals(loginReg)).FirstOrDefault();
-            //        // если такого лоигна нет,то он вносится в базу
-            //        if (query == null)
-            //        //Добавление нового пользователя 
-            //        {
-            //            hachi.Klienti.Add(new Klienti()
-            //            {
-            //                Login = loginReg,
-            //                Password = passReg,
-            //                FIO = fio,
-            //                email = emaill,
-            //                Phone = telph,
-            //            }
-            //            );
+
+            //условие,если пароль и подтв пароля совпадают
+          
+            //Используем базу данных для занесения пользователя в базу
+            {
+                using (egregr_SampleDBEntities3 hachi = new egregr_SampleDBEntities3())
+                {
+                    //запрос к базе
+                    var query = hachi.Klienti.Where(x => x.login.Equals(loginReg)).FirstOrDefault();
+                    // если такого лоигна нет,то он вносится в базу
+                    if (query == null)
+                    //Добавление нового пользователя 
+                    {
+                        hachi.Klienti.Add(new Klienti()
+                        {
+                            login = loginReg,
+                            pass = passReg,
+                            Surname = fam,
+                            Name = nam,
+                            Lastname = last,
+                            Passport = Convert.ToInt64(pasn),
+                            Date_passport = dateps.DisplayDate,
+                            RoleID = Convert.ToInt32(RolId.Text),
+                            
+                        }
+                        );
                         //сохранение изменений
-            //            hachi.SaveChanges();
-            //            MessageBox.Show("Поздравляем!Вы успешно зарегестрировались!");
+                        
+                        hachi.SaveChanges();
 
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Такой логин уже существует");
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Пароли не совпадают");
-            //}
+                        MessageBox.Show("Поздравляем!Вы успешно зарегестрировались!");
+                        this.Close();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Такой логин уже существует");
+                    }
+                }
+            }
+          
+        }
+
+        private void Button_Click_Back(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
+        }
+        //свернуть окно
+        private void Button_Click_Minimize(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+        }
+
+        private void Button_Click_Maximazed(object sender, RoutedEventArgs e)
+        {
+            if (Application.Current.MainWindow.WindowState != WindowState.Maximized)
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Normal;
+            }
+        }
+
+        private void Button_Click_Close(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

@@ -8,14 +8,15 @@
         Title="MainWindow" Height="500" Width="450"
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
     <Grid>
     <!--Сетка-->
     <Grid.RowDefinitions>
         <RowDefinition/>
         <RowDefinition/>
     </Grid.RowDefinitions>
-
-    <!--Background-->
+        
+        <!--Background-->
     <Border CornerRadius="10" Grid.RowSpan="2">
         <Border.Background>
             <LinearGradientBrush>
@@ -24,11 +25,49 @@
             </LinearGradientBrush>
         </Border.Background>
     </Border>
+        <!--Верхняя панель-->
+        <Border Grid.ColumnSpan="2"
+                
+               
+            >
+            <!--Названиен чата-->
+            <Grid HorizontalAlignment="Stretch">
+            
+                <!--Кнопки Выхода, Расширения, Сворачивания-->
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal"
+                            
+                    >
+                    <!--Свернуть-->
+                    <Button Width="25px" Height="20px" 
+                            Content="___" Background="Transparent"
+                            BorderThickness="0" FontWeight="Black"
+                            Foreground="#F5F5F5"
+                            Margin="0 0 0 5"
+                            Click="Button_Click_Minimize" VerticalAlignment="Top"
+                        />
+
+                    <!--Развернуть-->
+                    <Button Width="25px" Height="25px" 
+                            Content="☐" Background="Transparent"
+                            BorderThickness="0" FontWeight="Black"
+                            Foreground="#F5F5F5"
+                            Click="Button_Click_Maximazed" VerticalAlignment="Top"
+                        />
+                    <!--Выход-->
+                    <Button Width="25px" Height="25px" 
+                            Content="✕" Background="Transparent"
+                            BorderThickness="0" FontWeight="Black"
+                            Foreground="#F5F5F5"
+                            Click="Button_Click_Close" VerticalAlignment="Top"
+                        />
+                </StackPanel>
+            </Grid>
+        </Border>
 
     <!--Img and name compani-->
     <Grid Grid.Row="0">
         <StackPanel VerticalAlignment="Center">
-            <!--<Image Source="/Img/Lombard.png" Width="70"/>-->
+            <Image Source="/Resourses/lomb.png" Width="70"/>
         </StackPanel>
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center"  
@@ -52,7 +91,7 @@
             <TextBlock HorizontalAlignment="Center" Width="200" TextAlignment="Left" Margin="0 20 0 0"
                            Text="Enter password:" FontFamily="KTF Jermilov" Foreground="White" FontWeight="Medium"
                            FontSize="18"/>
-            <TextBox Name="TxbPassword" Background="Transparent" HorizontalAlignment="Center" Width="200" 
+            <PasswordBox Name="TxbPassword" Background="Transparent" HorizontalAlignment="Center" Width="200" 
                          BorderBrush="Black" BorderThickness="2"/>
         </StackPanel>
 
@@ -60,10 +99,10 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Margin="0 60 0 0">
             <Button Content="Login" Background="Transparent" BorderThickness="0" Margin="0 0 40 0"
                         FontFamily="KTF Jermilov" Foreground="White" FontWeight="Normal"
-                        FontSize="20"/>
+                        FontSize="20" Click="Button_Click_auth"/>
             <Button Content="Register" Background="Transparent"  BorderThickness="0"
                         FontFamily="KTF Jermilov" Foreground="White" FontWeight="Normal"
-                        FontSize="20"/>
+                        FontSize="20" Click="Button_Click"/>
         </StackPanel>
     </Grid>
     </Grid>
